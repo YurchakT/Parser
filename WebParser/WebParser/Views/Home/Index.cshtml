@@ -1,0 +1,32 @@
+﻿@{
+
+    ViewBag.Title = "Parser";                
+      }
+<div>
+    <h3>Парсер документів</h3>
+    @*<p><input type="file" name="Client" accept=".docx,.doc,.txt"/></p>*@
+    <form method="post"  enctype="multipart/form-data" action="Index">
+        <p><input type="file" name="Client" accept=".docx,.doc,.txt" /></p>
+        <p><b>Введіть слово для пошуку у вибранному документі</b><br/> 
+        @* multiple .txt *@
+            <input type="text" name="Word" size="40" />
+            <input type="submit" value="Пошук" />
+        </p>  
+    </form>
+    <table>
+        <tr>
+            <td ><p><h3>Речення</h3></p></td>
+            <td><p><h4>частота\слова</h4></p></td>
+        </tr>
+        @foreach (var b in ViewBag.Statements)
+        {
+            <tr>
+                <td  width="1000"><p>@b.ReverseWords </p></td>
+                <td><p>@b.NumberWord </p></td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+
